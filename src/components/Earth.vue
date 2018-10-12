@@ -6,13 +6,15 @@
         :locations="locations"
         :selected="preSelected"
       ></Map>
+        <template v-if="showNav">
+          <div class="absolute pin-l pl-4 line-center" @click="prevLoc">
+            <v-icon name="chevron-left" scale="4" class="text-grey-light"></v-icon>
+          </div>
+          <div class="absolute pin-r pr-4 line-center" @click="nextLoc">
+            <v-icon name="chevron-right" scale="4" class="text-grey-light"></v-icon>
+          </div>
+        </template>
 
-        <div class="absolute pin-l pl-4 line-center" @click="prevLoc">
-          <v-icon name="chevron-left" scale="4" class="text-grey-light"></v-icon>
-        </div>
-        <div class="absolute pin-r pr-4 line-center" @click="nextLoc">
-          <v-icon name="chevron-right" scale="4" class="text-grey-light"></v-icon>
-        </div>
     </div>
 
   </div>
@@ -21,6 +23,12 @@
 import { mapState } from 'vuex'
 import Map from '@/components/Map.vue'
 export default {
+  props: {
+    showNav: {
+      type: Boolean,
+      required: true
+    }
+  },
   components: {
     Map
   },

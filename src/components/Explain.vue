@@ -4,7 +4,7 @@
       <div class="result-image"></div>
       <div class="py-2 leading-normal">
         <p class="text-sm">{{ title }}</p>
-        <p class="text-xxs text-grey-dark">现状：{{ test }}</p>
+        <p class="text-xs text-grey-dark">现状：{{ test }}</p>
       </div>
 
     </div>
@@ -21,7 +21,7 @@ export default {
 </script>
 <style>
   .card {
-    width: 80%;
+    width: 90%;
     min-width: 6rem;
     heigth: 80%;
     min-height: 6rem;

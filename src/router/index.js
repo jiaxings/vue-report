@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+// import HelloWorld from '@/components/HelloWorld'
 import Result from '@/components/Result'
-import Share from '@/components/Share'
+// import Share from '@/components/Share'
 import Ancestry from '@/components/ancestry'
 import Earth from '@/components/Earth'
 import AncestryShort from '@/components/AncestryShort'
+import FlatMap from '@/components/FlatMap'
 // import Report from '@/components/Report'
 // import Sample from '@/components/Sample'
 // import NewReport from '@/components/NewReport'
@@ -14,21 +15,26 @@ Vue.use(Router)
 
 const router = new Router({
   routes: [
+    // {
+    //   path: '/',
+    //   name: 'HelloWorld',
+    //   component: HelloWorld
+    // },
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/result',
       name: 'result',
       component: Result
     },
     {
-      path: '/share',
-      name: 'share',
-      component: Share
+      path: '/flat-map',
+      name: 'flat-map',
+      component: FlatMap
     },
+    // {
+    //   path: '/share',
+    //   name: 'share',
+    //   component: Share
+    // },
     {
       path: '/earth',
       name: 'earth',

@@ -5,7 +5,7 @@
 <script>
 import * as world from '../assets/world-110m.json'
 import { geoOrthographic, geoPath, geoGraticule, geoCircle, transition, interpolate } from 'd3'
-import { feature, mesh } from 'topojson'
+import { feature, mesh} from 'topojson'
 
 export default {
   props: ['locations', 'selected'],
@@ -26,12 +26,13 @@ export default {
     this.coordinates = firstloc ? firstloc.coordinates : [0, 0]
 
     this.land = feature(world, world.objects.land)
-    this.countries = feature(world, world.objects.countries).features
-    this.borders = mesh(world, world.objects.countries, (a, b) => a !== b)
+    // this.provinces = this.land.features
+    this.provinces = feature(world, world.objects.provinces).features
+    this.borders = mesh(world, world.objects.provinces, (a, b) => a !== b)
 
     const locationIndexes = this.locations.map(l => l.topoindex)
 
-    this.colors = this.countries.map((_, i) => {
+    this.colors = this.provinces.map((_, i) => {
       if (locationIndexes.indexOf(i) !== -1) {
         return '#ABB'
       }
@@ -188,10 +189,10 @@ export default {
 
       projection.clipAngle(90)
 
-      for (let i in this.countries) {
+      for (let i in this.provinces) {
         c.fillStyle = this.colors[i]
         c.beginPath()
-        path(this.countries[i])
+        path(this.provinces[i])
         c.fill()
       }
 

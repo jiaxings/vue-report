@@ -4,6 +4,7 @@
     <app-menu />
     <div class="container mx-auto">
       <ancestry-share></ancestry-share>
+      <ancestry-detail></ancestry-detail>
       <result-share></result-share>
     </div>
   </div>
@@ -11,12 +12,14 @@
 
 <script>
 import AncestryShare from '@/components/modals/AncestryShare'
+import AncestryDetail from '@/components/modals/AncestryDetail'
 import ResultShare from '@/components/modals/ResultShare'
 import AppMenu from '@/components/Menu'
 export default {
   name: 'App',
   components: {
     AncestryShare,
+    AncestryDetail,
     ResultShare,
     AppMenu
   }
@@ -25,6 +28,10 @@ export default {
 <style>
   #app {
     position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
   .header-image {
     background: url('./assets/south.png') no-repeat;

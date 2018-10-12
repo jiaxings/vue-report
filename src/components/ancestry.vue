@@ -8,8 +8,16 @@
       </div>
 
       <div>
-        <earth></earth>
-        <div class="text-blue m-4 text-right">切换至世界地图</div>
+        <transition name="fade">
+          <div v-if="world">
+            <earth :show-nav="false"></earth>
+          </div>
+          <div v-else>
+            <flat-map></flat-map>
+          </div>
+        </transition>
+
+        <div class="inline-block text-blue m-4 text-right" @click="toggleMap"><h5>切换至{{ world ? '中国': '世界' }}地图</h5></div>
       </div>
 
       <div class="bg-white shadow rounded m-4 py-8">
@@ -25,12 +33,12 @@
         </div>
         <div class="px-2 pt-4">
           <ul class="list-reset leading-loose">
-            <li class="inline bg-grey-light px-2 py-1 rounded">蒙古人种</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded">牛羊肉 青稞酒</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded">鼻子窄</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded">西藏</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded">松赞干布</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded">牛羊肉 青稞酒</li>
+            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">蒙古人种</li>
+            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">青稞酒</li>
+            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">鼻子窄</li>
+            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">西藏</li>
+            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">松赞干布</li>
+            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">牛羊肉</li>
           </ul>
         </div>
         <div class="leading-normal px-2 pt-2 text-grey-dark">
@@ -44,7 +52,7 @@
       <div class="bg-white rounded py-4 px-4 m-4">
         <div class="text-grey-dark" v-for="ancestry in ancestries" :key="ancestry.slug">
           <h3 class="my-4">{{ ancestry.district }}</h3>
-          <div class="flex items-center my-1" v-for="(location, index) in ancestry.locations" :key="location.name">
+          <div class="flex items-center my-2" v-for="(location, index) in ancestry.locations" :key="location.name" @click="$modal.show('ancestry-detail')">
             <div class="w-2/5">
               <span class="px-1 text-white text-center" :style="{ backgroundColor: location.color }">{{ index + 1 }}</span>
               <h5 class="inline mx-2 whitespace-no-wrap">{{ location.name }}</h5>
@@ -63,61 +71,23 @@
           </div>
         </div>
 
-        <div class="text-blue cursor-pointer my-4">查看全部祖源信息</div>
-        <div class="flex flex-wrap text-grey-dark -mx-2">
-          <div class="w-1/2">
+        <div class="inline-block text-blue cursor-pointer my-4" @click="toggleAllAncestry">
+          <h5>{{ showAll ? '隐藏': '查看'}}全部祖源信息</h5>
+        </div>
+        <div class="flex flex-wrap text-grey-dark -mx-2" v-show="showAll">
+          <div class="w-1/2" v-for="location in allLocations" :key="location.id">
             <div class="bg-white shadow flex items-center m-2 p-2">
               <div class="w-10 h-10 rounded-full bg-grey"></div>
               <div class="leading-normal ml-2">
-                <h5>亚洲</h5>
-                <p class="text-xs">中国华北地区</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="w-1/2">
-            <div class="bg-white shadow flex items-center m-2 p-2">
-              <div class="w-10 h-10 rounded-full bg-grey"></div>
-              <div class="leading-normal ml-2">
-                <h5>亚洲</h5>
-                <p class="text-xs">中国华北地区</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="w-1/2">
-            <div class="bg-white shadow flex items-center m-2 p-2">
-              <div class="w-10 h-10 rounded-full bg-grey"></div>
-              <div class="leading-normal ml-2">
-                <h5>亚洲</h5>
-                <p class="text-xs">中国华北地区</p>
-              </div>
-            </div>
-          </div>
-          <div class="w-1/2">
-            <div class="bg-white shadow flex items-center m-2 p-2">
-              <div class="w-10 h-10 rounded-full bg-grey"></div>
-              <div class="leading-normal ml-2">
-                <h5>亚洲</h5>
-                <p class="text-xs">中国华北地区</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="w-1/2">
-            <div class="bg-white shadow flex items-center m-2 p-2">
-              <div class="w-10 h-10 rounded-full bg-grey"></div>
-              <div class="leading-normal ml-2">
-                <h5>亚洲</h5>
-                <p class="text-xs">中国华北地区</p>
+                <h5>{{ location.title }}</h5>
+                <p class="text-xs">{{ location.area }}</p>
               </div>
             </div>
           </div>
         </div>
-
         <div class="text-grey text-xs my-4">
           <p>*地图上的色块，展示了该地区人口的大致分布区域</p>
-          <p>*地图上的色块，展示了该地区人口的大致分布区域</p>
+          <p>*你的祖源成分百分比，展示了你与该地区人口的DNA相似性，并不代表你一定来自这个地区</p>
         </div>
 
       </div>
@@ -141,15 +111,19 @@
 import Earth from '@/components/Earth'
 import Panel from '@/components/Panel'
 import TopBar from '@/components/TopBar'
+import FlatMap from '@/components/FlatMap'
 
 export default {
   components: {
     Earth,
     Panel,
-    TopBar
+    TopBar,
+    FlatMap
   },
   data () {
     return {
+      showAll: false,
+      world: true,
       ancestries: [
         {
           district: '亚洲',
@@ -203,7 +177,45 @@ export default {
             }
           ]
         }
+      ],
+      allLocations: [
+        {
+          id: 1,
+          title: '亚洲',
+          area: '中国华北地区'
+        },
+        {
+          id: 2,
+          title: '亚洲',
+          area: '中国东北地区'
+        },
+        {
+          id: 3,
+          title: '亚洲',
+          area: '中国华南地区'
+        },
+        {
+          id: 4,
+          title: '亚洲',
+          area: '中国华北地区'
+        }, {
+          id: 5,
+          title: '欧洲',
+          area: '西班牙'
+        }, {
+          id: 6,
+          title: '欧洲',
+          area: '俄罗斯'
+        }
       ]
+    }
+  },
+  methods: {
+    toggleAllAncestry () {
+      this.showAll = !this.showAll
+    },
+    toggleMap () {
+      this.world = !this.world
     }
   }
 

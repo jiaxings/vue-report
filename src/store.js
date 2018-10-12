@@ -64,7 +64,7 @@ const store = new Vuex.Store({
       state.showMenu = !state.showMenu
     },
     hideMenu (state) {
-      state.shwoMenu = false
+      state.showMenu = false
     }
   }
 })

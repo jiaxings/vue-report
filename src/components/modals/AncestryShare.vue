@@ -6,6 +6,7 @@
     :adaptive="true"
     width="100%"
     height="auto"
+    :pivotY="0"
     scrollable
   >
       <div class="bg-image pt-12 pb-4">
