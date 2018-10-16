@@ -11,8 +11,8 @@
               <p class="text-grey-lighter text-xs">祖源： 蒙古地区人 ></p>
             </div>
             <div class="w-1/3">
-              <div class="w-24 h-24 rounded-full bg-grey-light z-1 float-right flex items-center justify-center">
-              <!--TODO 补充用户头像-->
+              <div class="w-24 h-24 p-2 rounded-full bg-white float-right flex items-center justify-center shadow">
+                <img src="../assets/394.png" alt="" class="w-24 rounded-full">
               </div>
             </div>
           </div>
@@ -20,39 +20,38 @@
         </div>
       <div class="bg-white rounded -mt-4 pt-6 shadow mx-4">
         <div class="flex justify-between">
-          <div class="border-l-4 border-blue">
+          <div class="border-l-8 border-blue">
             <h2 class="text-blue pl-4 text-3xl">16<span class="text-xs">个稀有标签</span></h2>
           </div>
           <div class="px-3 pointer-cursor" @click="showResultShare">
-            <v-icon name="share-square" scale="2" class="text-blue"></v-icon>
+            <v-icon name="external-link-alt" scale="2" class="text-blue"></v-icon>
           </div>
         </div>
-        <div class="py-3 leading-tight pl-4">
-          <a v-for="tag in tags" :key="tag" class="inline-block px-2 py-1 bg-grey-lighter rounded text-center text-xs text-blue-dark cursor-pointer mr-4 mb-2 whitespace-no-wrap">
+        <div class="pt-2 leading-tight pl-4">
+          <!--TODO 整合class-->
+          <span v-for="tag in tags" :key="tag" class="inline-block px-2 py-1 bg-grey-light rounded text-center text-xs text-blue cursor-pointer mr-4 mb-2 whitespace-no-wrap font-bold">
             {{ tag }}
-          </a>
+          </span>
         </div>
-        <div class="dna-bottom"></div>
+        <div class="dna-bottom px-4">
+          <img src="../assets/dna_bottom.png" alt="" class="w-full -mb-1">
+        </div>
       </div>
 
-        <div class="py-2 mx-4">
-          <div class="my-2">
-            <h4>个性特点 <span class="bg-grey-light py-1 px-2 text-red-light text-xs rounded">更新1项目</span></h4>
-          </div>
+        <div class="pt-6 mx-4">
+            <h4 class="mb-2">个性特点 <sup class="bg-grey-light py-1 px-2 text-red-light text-xxs rounded-lg">更新1项目</sup></h4>
           <div class="-mx-2 flex flex-wrap">
             <div v-for="(explain, index) of explains" :key="index" class="w-1/3 sm:w-1/4">
-              <explain :title="explain.title" :test="explain.test"></explain>
+              <explain :explain="explain"></explain>
             </div>
           </div>
         </div>
 
-      <div class="py-2 mx-4">
-        <div class="my-2">
-          <h4>个性特点 <span class="bg-grey-light py-1 px-2 text-red-light text-xs rounded">更新1项目</span></h4>
-        </div>
+      <div class="pt-6 mx-4">
+        <h4 class="mb-2">个性特点</h4>
         <div class="-mx-2 flex flex-wrap">
           <div v-for="(explain, index) of explains" :key="index" class="w-1/3 sm:w-1/4">
-            <explain :title="explain.title" :test="explain.test"></explain>
+            <explain :explain="explain"></explain>
           </div>
         </div>
       </div>
@@ -89,11 +88,13 @@ export default {
       explains: [
         {
           title: '宜人性较低',
-          test: '宜人性中等'
+          test: '宜人性中等',
+          tag: 'rare'
         },
         {
           title: '宜人性较低',
-          test: '宜人性中等'
+          test: '宜人性中等',
+          tag: 'new'
         },
         {
           title: '宜人性较低',
@@ -117,9 +118,12 @@ export default {
 <style>
   .svg {fill:none;stroke:#777;stroke-miterlimit:10;stroke-width:2px;}
   .dna-bottom {
-    min-height: 6rem;
     width: 100%;
-    background: url('../assets/dna_bottom.png') no-repeat;
-    background-size: cover;
+  }
+
+  @media (min-width: 768px) {
+    .dna-bottom {
+      display: none;
+    }
   }
 </style>

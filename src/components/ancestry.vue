@@ -28,7 +28,8 @@
           </div>
 
           <!--地区画像-->
-          <div class="bg-grey rounded-full w-24 h-24 mr-2">
+          <div class="w-24 h-24 p-2 mr-2 rounded-full bg-white float-right flex items-center justify-center shadow">
+            <img src="../assets/394.png" alt="" class="w-24 rounded-full">
           </div>
         </div>
         <div class="px-2 pt-4">

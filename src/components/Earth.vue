@@ -8,10 +8,10 @@
       ></Map>
         <template v-if="showNav">
           <div class="absolute pin-l pl-4 line-center" @click="prevLoc">
-            <v-icon name="chevron-left" scale="4" class="text-grey-light"></v-icon>
+            <v-icon name="chevron-left" scale="3" class="text-grey-light"></v-icon>
           </div>
           <div class="absolute pin-r pr-4 line-center" @click="nextLoc">
-            <v-icon name="chevron-right" scale="4" class="text-grey-light"></v-icon>
+            <v-icon name="chevron-right" scale="3" class="text-grey-light"></v-icon>
           </div>
         </template>
 

@@ -1,14 +1,14 @@
 <template>
-  <div class="flex justify-between mb-12">
+  <div class="flex justify-between">
     <div class="w-12 h-12">
       <img src="../assets/gs_head.svg" alt="" class="z-10">
     </div>
     <div class="flex">
-      <div class="px-3 pointer-cursor" @click="showAncestryModal" v-if="showShareIcon">
-        <v-icon name="share-square" scale="2" class="text-white"></v-icon>
+      <div class="px-2 pointer-cursor" @click="showAncestryModal" v-if="showShareIcon">
+        <v-icon name="external-link-alt" scale="2" class="text-white"></v-icon>
       </div>
-      <div class="px-3 pointer-cursor" @click="toggleMenu">
-        <v-icon name="ellipsis-v" scale="2" class="text-white"></v-icon>
+      <div class="px-2 pointer-cursor" @click="toggleMenu">
+        <v-icon name="bars" scale="2" class="text-white"></v-icon>
       </div>
     </div>
   </div>

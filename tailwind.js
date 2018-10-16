@@ -67,7 +67,8 @@ let colors = {
   'orange-darkest': '#462a16',
   'orange-darker': '#613b1f',
   'orange-dark': '#de751f',
-  'orange': '#f6993f',
+  // 'orange': '#f6993f',
+  'orange': '#ff6f09',
   'orange-light': '#faad63',
   'orange-lighter': '#fcd9b6',
   'orange-lightest': '#fff5eb',
@@ -260,6 +261,7 @@ module.exports = {
   */
 
   textSizes: {
+    'xxs': '.5rem',     // 12px
     'xs': '.75rem',     // 12px
     'sm': '.875rem',    // 14px
     'base': '1rem',     // 16px

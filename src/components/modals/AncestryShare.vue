@@ -4,7 +4,7 @@
     classes="flex justify-center items-center bg-grey-transparent"
     transition="pop-out"
     :adaptive="true"
-    width="100%"
+    width="95%"
     height="auto"
     :pivotY="0"
     scrollable
@@ -25,7 +25,8 @@
             </div>
 
             <!--地区画像-->
-            <div class="bg-grey rounded-full w-24 h-24 mr-2">
+            <div class="w-24 h-24 p-2 mr-2 rounded-full bg-white float-right flex items-center justify-center shadow">
+              <img src="../../assets/394.png" alt="" class="w-24 rounded-full">
             </div>
           </div>
           <div class="px-2 pt-4">
@@ -57,7 +58,6 @@
               <div class="w-1/5">
                 <div class="text-sm whitespace-no-wrap flex justify-between items-center">
                   {{ `${(location.percent * 100).toFixed(2)}%`}}
-                  <v-icon name="angle-right" scale="1" class="text-right"></v-icon>
                 </div>
               </div>
             </div>

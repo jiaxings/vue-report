@@ -2,11 +2,9 @@
   <div id="app">
     <router-view/>
     <app-menu />
-    <div class="container mx-auto">
-      <ancestry-share></ancestry-share>
+    <ancestry-share></ancestry-share>
       <ancestry-detail></ancestry-detail>
       <result-share></result-share>
-    </div>
   </div>
 </template>
 
@@ -27,7 +25,7 @@ export default {
 </script>
 <style>
   #app {
-    position: relative;
+    position: absolute;
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;

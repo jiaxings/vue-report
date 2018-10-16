@@ -4,13 +4,13 @@
     classes="bg-grey-transparent"
     transition="pop-out"
     :adaptive="true"
-    width="100%"
+    width="95%"
     height="auto"
     :pivotY="0"
     scrollable
   >
 
-    <div class="bg-blue-light py-6 relative">
+    <div class="bg-blue py-6 relative">
       <div class="absolute pin-r pin-t">
         <button class="bg-white shadow-md mt-2 mr-2 w-8 h-8 rounded-full flex items-center justify-center cursor-pointer" @click="$modal.hide('result-share')">
           <v-icon name="times" scale="1"></v-icon>
@@ -26,8 +26,8 @@
             <p class="text-grey-lighter text-xs">第999,99位好奇心用户</p>
           </div>
           <div class="w-1/3">
-            <div class="w-24 h-24 rounded-full bg-grey-light z-1 float-right flex items-center justify-center">
-              <!--TODO 补充用户头像-->
+            <div class="w-24 h-24 p-2 mr-2 rounded-full bg-white float-right flex items-center justify-center shadow">
+              <img src="../../assets/394.png" alt="" class="w-24 rounded-full">
             </div>
           </div>
         </div>
@@ -36,13 +36,13 @@
       <div class="bg-white rounded -mt-4 pt-6 shadow mx-4">
         <div class="flex justify-between">
           <div class="border-l-4 border-blue">
-            <h2 class="text-blue-light pl-4 text-3xl">16<span class="text-xs">个稀有标签</span></h2>
+            <h2 class="text-blue pl-4 text-3xl">16<span class="text-xs">个稀有标签</span></h2>
           </div>
         </div>
         <div class="py-3 leading-tight pl-4">
-          <a v-for="tag in tags" :key="tag" class="inline-block px-2 py-1 bg-grey-lighter rounded text-center text-xs text-blue-dark cursor-pointer mr-4 mb-2 whitespace-no-wrap">
+          <span v-for="tag in tags" :key="tag" class="inline-block px-2 py-1 bg-grey-light rounded text-center text-xs text-blue cursor-pointer mr-4 mb-2 whitespace-no-wrap font-bold">
             {{ tag }}
-          </a>
+          </span>
         </div>
         <div class="py-4 flex">
           <div class="w-1/2">
@@ -76,7 +76,7 @@
         </div>
 
         <div class="text-white text-center">
-          <div>
+          <div class="mb-2">
             <img src="../../assets/gese_logo.svg" alt="">
           </div>
           <p>用科学定义独一无二的你</p>

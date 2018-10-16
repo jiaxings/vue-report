@@ -1,5 +1,9 @@
 @tailwind preflight;
 
+body {
+  overflow-scrolling:touch;
+  -webkit-overflow-scrolling:touch;
+}
 @tailwind components;
 
 @tailwind utilities;

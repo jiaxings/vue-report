@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import Result from '@/components/Result'
 // import Share from '@/components/Share'
 import Ancestry from '@/components/ancestry'
-import Earth from '@/components/Earth'
+import Earth from './earth'
 import AncestryShort from '@/components/AncestryShort'
 import FlatMap from '@/components/FlatMap'
 // import Report from '@/components/Report'
@@ -14,6 +14,7 @@ import FlatMap from '@/components/FlatMap'
 Vue.use(Router)
 
 const router = new Router({
+  mode: 'history',
   routes: [
     // {
     //   path: '/',

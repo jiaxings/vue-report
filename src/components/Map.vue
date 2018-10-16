@@ -5,7 +5,7 @@
 <script>
 import * as world from '../assets/world-110m.json'
 import { geoOrthographic, geoPath, geoGraticule, geoCircle, transition, interpolate } from 'd3'
-import { feature, mesh} from 'topojson'
+import { feature, mesh } from 'topojson'
 
 export default {
   props: ['locations', 'selected'],
@@ -66,6 +66,10 @@ export default {
       window.addEventListener(evtname, this.draw)
     }
   },
+
+  beforeDestroy () {
+    window.removeEventListener('resize', this.resizeHandler)
+  },
   computed: {
     scale: function () {
       // the scale of the projection
@@ -76,8 +80,8 @@ export default {
   methods: {
     resetCanvas: function () {
       // this.height = window.innerHeight
-      this.width = window.innerWidth
-      this.height = this.width
+      // this.width = window.innerWidth
+      this.height = this.width = window.innerWidth
 
       // let boundingClient = this.canvas.getBoundingClientRect()
       // this.width = boundingClient.right - boundingClient.left || boundingClient.width
@@ -104,7 +108,7 @@ export default {
       this.projection = geoOrthographic()
         .scale(this.scale)
         .translate([this.width / 2, this.height / 2])
-        .precision(0.6)
+        .precision(0.8)
 
       this.path = geoPath()
         .projection(this.projection)
@@ -121,17 +125,24 @@ export default {
 
       transition()
         .duration(1300)
-        .attrTween('rotate', function () {
+        .tween('rotate', function () {
+          // 对旋转路径进行补间
           const rotation = interpolate(this.projection.rotate(), coordinates.map(coordinate => -coordinate))
+
+          // 计算坐标间距离
           const pythagoras = (x, y) => {
             return Math.sqrt(Math.pow(x[0] - y[0], 2) + Math.pow(x[1] - y[1], 2))
           }
-          let distance = 50
+
+          // 旋转的距离
+          let distance = 30
           if (oldCoordinates) {
             distance = pythagoras(coordinates, oldCoordinates)
           }
           const createScaler = (distance, initialscale) => {
+            // 补间尺寸
             const range = Math.pow(distance, 1.1)
+
             return (time) => (initialscale - range) + (Math.abs(time - 0.5) * range * 2)
           }
 
@@ -163,7 +174,7 @@ export default {
 
       time = time || 1
       distance = distance || 0
-      scale = scale || 500
+      scale = scale || this.scale
       // clear the canvas
       c.clearRect(0, 0, this.width, this.height)
       this.projection.scale(scale)
@@ -223,12 +234,18 @@ export default {
       let circles = []
       for (let i in this.locations) {
         let angle = 5
-        if (i === this.selected) {
+        let j = parseInt(i, 10)
+        if (j === this.selected) {
           angle = 5 + ((1 - time) * Math.pow(distance / 10, 1.4))
         }
 
-        circles.push(circle.radius(angle).center(this.locations[i].coordinates)())
+        circles.push(
+          circle
+            .radius(angle)
+            .center(this.locations[i].coordinates)()
+        )
       }
+      // console.log(circles)
 
       c.fillStyle = 'rgba(250, 100, 100, 0.8)'
       c.beginPath()
