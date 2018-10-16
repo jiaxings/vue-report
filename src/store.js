@@ -9,6 +9,8 @@ const store = new Vuex.Store({
     selected: 0,
     preSelected: 0,
     showMenu: false,
+    shareImageUrl: '',
+    shareModalName: '',
     locations: [
       {
         id: 0,
@@ -65,6 +67,12 @@ const store = new Vuex.Store({
     },
     hideMenu (state) {
       state.showMenu = false
+    },
+    setShareImageUrl (state, string) {
+      state.shareImageUrl = string
+    },
+    setShareModalName (state, string) {
+      state.shareModalName = string
     }
   }
 })

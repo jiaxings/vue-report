@@ -2,6 +2,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const ejs = require('ejs');
+const cors = require('cors')
 const puppeteer = require('puppeteer');
 const app = express();
 
@@ -9,6 +10,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(morgan('combined'));
 app.use(express.static('dist'));
+app.use(cors());
 
 const http = require('http').Server(app);
 
@@ -62,10 +64,29 @@ const locationIdExists = (id) => {
 	return locations.some((l) => l.id === id);
 };
 
+const tags = [
+  '最难留疤',
+  '容易焦虑',
+  '非常脆弱',
+  '喝咖啡较多',
+  '比较怕痛',
+  '不易长痘',
+  '最难失眠',
+  '叶酸需求较高',
+  '最难留疤',
+  '容易焦虑',
+  '非常脆弱',
+  '喝咖啡较多',
+  '比较怕痛',
+  '不易长痘',
+  '最难失眠',
+  '叶酸需求较高'
+];
+
 app.get('/test', (req, res) => {
 	console.log(req.query)
-	let name = req.query.name
-	res.render('test', { data: '12', name });
+	// let name = req.query.name
+	res.render('test', { tags });
 });
 
 app.get('/data', (req, res) => {
@@ -86,13 +107,19 @@ app.get('/export/pdf', (req, res) => {
 			waitUntil: 'load'
 		});
 		await page.setViewport({
-			width: 320, // 320, 768, 1024, 1280
-			height: 600
+			width: 376, // 320, 768, 1024, 1280
+			height: 802
 		});
-		const buffer = await page.screenshot();
+		const path = `screenshots/screen-${Date.now()}.png`
+		await page.screenshot({
+      path: `dist/${path}`,
+      fullPage: true
+    });
 
-		res.type('image/jpeg');
-		res.send(buffer);
+		res.type('application/json');
+		res.send({
+      path
+    });
 		browser.close();
 	})();
 });

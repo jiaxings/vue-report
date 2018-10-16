@@ -59,6 +59,8 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
+
 import Explain from './Explain'
 import TopBar from '@/components/TopBar'
 // import dnaBottom from '../assets/dna_bottom.svg'
@@ -70,6 +72,9 @@ export default {
   },
   data () {
     return {
+      loadingShare: false,
+      shareImage: './screenshots/screen-1539683757013.png',
+      // shareImage: 'http://localhost:3000/screenshots/screen-1539683757013.png',
       d_b: {
         backgroundImage: dnaBottom,
         backgroundSize: 'cover',
@@ -109,8 +114,22 @@ export default {
   },
   methods: {
     showResultShare () {
-      console.log('show')
-      this.$modal.show('result-share')
+      this.$store.commit('setShareImageUrl', this.shareImage)
+      this.$modal.show('share-result-image')
+      // console.log('show')
+    //   this.$modal.show('share-result-image')
+    //   this.loadingShare = true
+    //   axios.get('http://localhost:3000/export/pdf')
+    //     .then(res => {
+    //       this.loadingShare = false
+    //       if (res.data && res.data.path) {
+    //         this.shareImage = res.data.path
+    //       }
+    //     })
+    //     .catch(e => {
+    //       this.loadingShare = false
+    //       console.error(e)
+    //     })
     }
   }
 }
@@ -118,6 +137,10 @@ export default {
 <style>
   .svg {fill:none;stroke:#777;stroke-miterlimit:10;stroke-width:2px;}
   .dna-bottom {
+    width: 100%;
+  }
+  .share-image {
+    height: 100%;
     width: 100%;
   }
 

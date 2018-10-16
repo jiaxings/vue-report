@@ -5,34 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Test Template</title>
-    <style>
-        body {
-            box-sizing: border-box;
-            padding: 0;
-        }
-        * {
-            color: white;
-            font-family: 'Operator Mono';
-        }
-        .img {
-            margin: 0 auto;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            background-image: url('./static/img/south.be0c443.png');
-            background-size: cover;
-            background-position: bottom;
-        }
-    </style>
+  <link rel="stylesheet" href="./styles/style.css">
+  <style>
+    .dna-left {
+      background-size: contain;
+      height: 100%;
+      min-width: 100%;
+      background-image: url('./images/dna_left.svg');
+      background-size: cover;
+      background-position: right;
+    }
+  </style>
 </head>
 <body>
-    <div class="img">
-    <h1>
-        <%= name; %>
-        <h1>Hello screenshot, <%= data; %></h1>
-        <p>This is what i want to say about all things</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et at magnam similique neque blanditiis laudantium, suscipit, deserunt aperiam inventore labore aspernatur maxime. Quia, ipsa deleniti. Laborum aliquid placeat fuga quibusdam?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et at magnam similique neque blanditiis laudantium, suscipit, deserunt aperiam inventore labore aspernatur maxime. Quia, ipsa deleniti. Laborum aliquid placeat fuga quibusdam?</p>
+<div class="bg-blue py-6 relative">
+  <div class="px-4 pt-4">
+    <div class="flex items-center">
+      <div class="w-2/3">
+        <h2 class="text-white text-3xl">
+          DARk Liu
+        </h2>
+        <p class="text-grey-lighter text-xs">第999,99位好奇心用户</p>
+      </div>
+      <div class="w-1/3">
+        <div class="w-24 h-24 p-2 mr-2 rounded-full bg-white float-right flex items-center justify-center shadow">
+          <img src="./images/394.png" alt="" class="w-24 rounded-full">
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="bg-white rounded -mt-4 pt-6 shadow mx-4">
+    <div class="flex justify-between">
+      <div class="border-l-4 border-blue">
+        <h2 class="text-blue pl-4 text-3xl">16<span class="text-xs">个稀有标签</span></h2>
+      </div>
+    </div>
+    <div class="py-3 leading-tight pl-4">
+      <% tags.forEach(function(tag) {%>
+          <span class="inline-block px-2 py-1 bg-grey-light rounded text-center text-xs text-blue cursor-pointer mr-4 mb-2 whitespace-no-wrap font-bold">
+            <%= tag %>
+          </span>
+      <% });%>
+
+    </div>
+    <div class="py-4 flex">
+      <div class="w-1/2">
+        <div class="dna-left"></div>
+      </div>
+      <div class="flex flex-col text-blue leading-tight w-1/2 pl-2 ">
+        <div class="mb-4">
+          <h1>2.3% <span class="text-sm whitespace-no-wrap">稀有指数</span></h1>
+          <h4 class="font-thin">轻微易燃易爆</h4>
+          <p class="text-xxs">基因DBH rs123124124 位点 T 型</p>
+        </div>
+        <div class="mb-4">
+          <h1>2.3% <span class="text-sm whitespace-no-wrap">稀有指数</span></h1>
+          <h4 class="font-thin">轻微易燃易爆</h4>
+          <p class="text-xs">基因DBH rs123124124 位点 T 型</p>
+        </div>
+
+        <div class="">
+          <h1>2.3% <span class="text-sm whitespace-no-wrap">稀有指数</span></h1>
+          <h4 class="font-thin">轻微易燃易爆</h4>
+          <p class="text-xs">基因DBH rs123124124 位点 T 型</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-4 flex items-center justify-around">
+    <div>
+      <div class="w-24 h-24 bg-grey">
+      </div>
+    </div>
+
+    <div class="text-white text-center">
+      <div class="mb-2">
+        <img src="./images/gese_logo.svg" alt="">
+      </div>
+      <p>用科学定义独一无二的你</p>
+      <p>gesedna.com</p>
+    </div>
+
+  </div>
+</div>
 </body>
 </html>

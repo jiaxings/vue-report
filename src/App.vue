@@ -3,8 +3,10 @@
     <router-view/>
     <app-menu />
     <ancestry-share></ancestry-share>
-      <ancestry-detail></ancestry-detail>
-      <result-share></result-share>
+    <ancestry-detail></ancestry-detail>
+    <result-share></result-share>
+    <share-image></share-image>
+
   </div>
 </template>
 
@@ -12,6 +14,7 @@
 import AncestryShare from '@/components/modals/AncestryShare'
 import AncestryDetail from '@/components/modals/AncestryDetail'
 import ResultShare from '@/components/modals/ResultShare'
+import ShareImage from '@/components/modals/ShareImage'
 import AppMenu from '@/components/Menu'
 export default {
   name: 'App',
@@ -19,6 +22,7 @@ export default {
     AncestryShare,
     AncestryDetail,
     ResultShare,
+    ShareImage,
     AppMenu
   }
 }
