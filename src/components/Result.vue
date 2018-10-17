@@ -21,10 +21,11 @@
       <div class="bg-white rounded -mt-4 pt-6 shadow mx-4">
         <div class="flex justify-between">
           <div class="border-l-8 border-blue">
-            <h2 class="text-blue pl-4 text-3xl">16<span class="text-xs">个稀有标签</span></h2>
+            <h2 class="text-blue pl-2 text-3xl">16<span class="text-xs">个稀有标签</span></h2>
           </div>
           <div class="px-3 pointer-cursor" @click="showResultShare">
-            <v-icon name="external-link-alt" scale="2" class="text-blue"></v-icon>
+            <!--<v-icon name="external-link-alt" scale="2" class="text-blue"></v-icon>-->
+            <icon-base name="icon-share" view-box="0 0 20 20" :width="24" :height="24" stroke-color="#0086ff" icon-color="none"><icon-share></icon-share></icon-base>
           </div>
         </div>
         <div class="pt-2 leading-tight pl-4">
@@ -39,7 +40,7 @@
       </div>
 
         <div class="pt-6 mx-4">
-            <h4 class="mb-2">个性特点 <sup class="bg-grey-light py-1 px-2 text-red-light text-xxs rounded-lg">更新1项目</sup></h4>
+            <h4 class="mb-2">个性特点 <sup class="bg-grey-light py-1 px-2 text-orange text-xxs rounded-full">更新1项目</sup></h4>
           <div class="-mx-2 flex flex-wrap">
             <div v-for="(explain, index) of explains" :key="index" class="w-1/3 sm:w-1/4">
               <explain :explain="explain"></explain>
@@ -65,10 +66,12 @@ import Explain from './Explain'
 import TopBar from '@/components/TopBar'
 // import dnaBottom from '../assets/dna_bottom.svg'
 import dnaBottom from '../assets/dna_bottom.png'
+import IconShare from './icons/IconShare'
 export default {
   components: {
     Explain,
-    TopBar
+    TopBar,
+    IconShare
   },
   data () {
     return {
@@ -94,12 +97,13 @@ export default {
         {
           title: '宜人性较低',
           test: '宜人性中等',
-          tag: 'rare'
+          rare: true
         },
         {
           title: '宜人性较低',
           test: '宜人性中等',
-          tag: 'new'
+          new: true,
+          rare: true
         },
         {
           title: '宜人性较低',
@@ -107,7 +111,8 @@ export default {
         },
         {
           title: '宜人性较低',
-          test: '宜人性中等'
+          test: '宜人性中等',
+          rare: true
         }
       ]
     }

@@ -1,7 +1,7 @@
 <template>
   <modal
     name="ancestry-share"
-    classes="flex justify-center items-center bg-grey-transparent"
+    classes="flex justify-center items-center"
     transition="pop-out"
     :adaptive="true"
     width="95%"

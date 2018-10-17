@@ -7,6 +7,7 @@ import Ancestry from '@/components/ancestry'
 import Earth from './earth'
 import AncestryShort from '@/components/AncestryShort'
 import FlatMap from '@/components/FlatMap'
+import Icons from './Icons'
 // import Report from '@/components/Report'
 // import Sample from '@/components/Sample'
 // import NewReport from '@/components/NewReport'
@@ -25,6 +26,11 @@ const router = new Router({
       path: '/',
       name: 'result',
       component: Result
+    },
+    {
+      path: '/icons',
+      name: 'icons',
+      component: Icons
     },
     {
       path: '/flat-map',

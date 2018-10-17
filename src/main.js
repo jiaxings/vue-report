@@ -7,12 +7,14 @@ import router from './router'
 import store from './store'
 import Icon from 'vue-awesome/components/Icon'
 import VModal from 'vue-js-modal'
+import IconBase from '@/components/IconBase'
 
 import 'vue-awesome/icons'
 import './main.css'
 
 Vue.use(VModal)
 Vue.component('v-icon', Icon)
+Vue.component('icon-base', IconBase)
 // Vue.component('icon', Icon)
 
 Vue.config.productionTip = false
