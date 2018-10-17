@@ -37,7 +37,7 @@
           class="text-xs font-bold"
           :class="explain.tag ? (explain.tag === 'new' ? 'text-orange': 'text-blue'): ''"
         >{{ explain.title }}</p>
-        <p class="text-xxs text-grey-dark">现状：{{ explain.test }}</p>
+        <p class="text-xxs text-grey">现状：{{ explain.test }}</p>
       </div>
 
     </div>

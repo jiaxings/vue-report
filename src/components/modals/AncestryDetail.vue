@@ -33,13 +33,13 @@
           </div>
         </div>
         <div class="px-4 pt-4">
-          <ul class="list-reset leading-loose">
-            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">蒙古人种</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">牛羊肉 青稞酒</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">鼻子窄</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">西藏</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">松赞干布</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">牛羊肉 青稞酒</li>
+          <ul class="list-reset leading-loose text-grey-cb">
+            <li class="inline bg-grey-light font-bold px-2 py-1 rounded whitespace-no-wrap">蒙古人种</li>
+            <li class="inline bg-grey-light font-bold px-2 py-1 rounded whitespace-no-wrap">牛羊肉 青稞酒</li>
+            <li class="inline bg-grey-light font-bold px-2 py-1 rounded whitespace-no-wrap">鼻子窄</li>
+            <li class="inline bg-grey-light font-bold px-2 py-1 rounded whitespace-no-wrap">西藏</li>
+            <li class="inline bg-grey-light font-bold px-2 py-1 rounded whitespace-no-wrap">松赞干布</li>
+            <li class="inline bg-grey-light font-bold px-2 py-1 rounded whitespace-no-wrap">牛羊肉 青稞酒</li>
           </ul>
         </div>
         <div class="leading-normal px-4 pt-2 text-grey-dark">

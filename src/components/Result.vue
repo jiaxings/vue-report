@@ -39,8 +39,8 @@
         </div>
       </div>
 
-        <div class="pt-6 mx-4">
-            <h4 class="mb-2">个性特点 <sup class="bg-grey-light py-1 px-2 text-orange text-xxs rounded-full">更新1项目</sup></h4>
+        <div class="pt-6 mx-4 text-grey-dark">
+            <h4 class="mb-2 text-lg">个性特点 <sup class="bg-grey-light py-1 px-2 text-orange text-xxs rounded-full align-middle">更新1项目</sup></h4>
           <div class="-mx-2 flex flex-wrap">
             <div v-for="(explain, index) of explains" :key="index" class="w-1/3 sm:w-1/4">
               <explain :explain="explain"></explain>
@@ -48,8 +48,8 @@
           </div>
         </div>
 
-      <div class="pt-6 mx-4">
-        <h4 class="mb-2">个性特点</h4>
+      <div class="pt-6 mx-4 text-grey-dark">
+        <h4 class="mb-2 text-lg">个性特点</h4>
         <div class="-mx-2 flex flex-wrap">
           <div v-for="(explain, index) of explains" :key="index" class="w-1/3 sm:w-1/4">
             <explain :explain="explain"></explain>
