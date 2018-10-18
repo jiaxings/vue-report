@@ -29,21 +29,21 @@
               <img src="../../assets/394.png" alt="" class="w-24 rounded-full">
             </div>
           </div>
-          <div class="px-2 pt-4">
+          <div class="px-4 pt-4">
             <ul class="list-reset leading-loose">
-              <li class="inline bg-grey-light px-2 py-1 rounded">蒙古人种</li>
-              <li class="inline bg-grey-light px-2 py-1 rounded">牛羊肉 青稞酒</li>
-              <li class="inline bg-grey-light px-2 py-1 rounded">鼻子窄</li>
-              <li class="inline bg-grey-light px-2 py-1 rounded">西藏</li>
-              <li class="inline bg-grey-light px-2 py-1 rounded">松赞干布</li>
-              <li class="inline bg-grey-light px-2 py-1 rounded">牛羊肉 青稞酒</li>
+              <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">蒙古人种</li>
+              <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">牛羊肉 青稞酒</li>
+              <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">鼻子窄</li>
+              <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">西藏</li>
+              <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">松赞干布</li>
+              <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">牛羊肉 青稞酒</li>
             </ul>
           </div>
-          <div class="leading-normal px-2 pt-2 text-grey-dark">
+          <div class="leading-normal px-4 pt-2 text-grey-dark">
             4000多年前，你的祖先在西藏雅鲁藏布江，祖源百分比数据调用规则：调用用户祖源祖源百分比数据调用规则：调用用户祖源祖源百分比数据调用规则：调用用户祖源
           </div>
 
-          <div class="text-grey-dark px-2">
+          <div class="text-grey-dark px-4">
 
             <div class="flex items-center my-1" v-for="(location, index) in locations" :key="location.name">
               <div class="w-2/5">

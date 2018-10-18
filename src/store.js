@@ -11,6 +11,7 @@ const store = new Vuex.Store({
     showMenu: false,
     shareImageUrl: '',
     shareModalName: '',
+    serverPath: '192.168.31.67',
     locations: [
       {
         id: 0,

@@ -16,6 +16,7 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 import IconMenu from './icons/IconMenu'
 import IconShare from './icons/IconShare'
 export default {
@@ -23,17 +24,24 @@ export default {
     IconMenu,
     IconShare
   },
+  data () {
+    return {
+      shareImage: '/screenshots/ancestry.png'
+    }
+  },
   props: {
     modal: String
   },
   computed: {
+    ...mapState(['serverPath']),
     showShareIcon () {
       return !!this.modal
     }
   },
   methods: {
     showAncestryModal () {
-      this.$modal.show(this.modal)
+      this.$store.commit('setShareImageUrl', `http://${this.serverPath}:3000${this.shareImage}`)
+      this.$modal.show('share-result-image')
     },
     toggleMenu () {
       this.$store.commit('toggleMenu')

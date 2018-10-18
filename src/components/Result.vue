@@ -30,7 +30,7 @@
         </div>
         <div class="pt-2 leading-tight pl-4">
           <!--TODO 整合class-->
-          <span v-for="tag in tags" :key="tag" class="inline-block px-2 py-1 bg-grey-light rounded text-center text-xs text-blue cursor-pointer mr-4 mb-2 whitespace-no-wrap font-bold">
+          <span v-for="tag in tags" :key="tag" class="inline-block px-2 py-1 bg-grey-light rounded text-center text-xs text-blue cursor-pointer mr-2 mb-2 whitespace-no-wrap font-bold">
             {{ tag }}
           </span>
         </div>
@@ -40,7 +40,7 @@
       </div>
 
         <div class="pt-6 mx-4">
-            <h4 class="mb-2">个性特点 <sup class="bg-grey-light py-1 px-2 text-orange text-xxs rounded-full">更新1项目</sup></h4>
+            <h4 class="mb-2 text-lg text-grey-light-2">个性特点 <sup class="bg-grey-light py-1 px-2 text-orange text-xxs rounded-full">更新1项</sup></h4>
           <div class="-mx-2 flex flex-wrap">
             <div v-for="(explain, index) of explains" :key="index" class="w-1/3 sm:w-1/4">
               <explain :explain="explain"></explain>
@@ -49,7 +49,7 @@
         </div>
 
       <div class="pt-6 mx-4">
-        <h4 class="mb-2">个性特点</h4>
+        <h4 class="mb-2 text-lg text-grey-light-2">个性特点</h4>
         <div class="-mx-2 flex flex-wrap">
           <div v-for="(explain, index) of explains" :key="index" class="w-1/3 sm:w-1/4">
             <explain :explain="explain"></explain>
@@ -61,23 +61,27 @@
 </template>
 <script>
 import axios from 'axios'
-
+import { mapState } from 'vuex'
 import Explain from './Explain'
 import TopBar from '@/components/TopBar'
 // import dnaBottom from '../assets/dna_bottom.svg'
 import dnaBottom from '../assets/dna_bottom.png'
 import IconShare from './icons/IconShare'
+
 export default {
   components: {
     Explain,
     TopBar,
     IconShare
   },
+  computed: {
+    ...mapState(['serverPath'])
+  },
   data () {
     return {
       loadingShare: false,
-      shareImage: './screenshots/screen-1539683757013.png',
-      // shareImage: 'http://localhost:3000/screenshots/screen-1539683757013.png',
+      shareImage: `/screenshots/result.png`,
+      // shareImage: 'http://localhost:3000/screenshots/screen-1539750950123.png',
       d_b: {
         backgroundImage: dnaBottom,
         backgroundSize: 'cover',
@@ -119,22 +123,27 @@ export default {
   },
   methods: {
     showResultShare () {
-      this.$store.commit('setShareImageUrl', this.shareImage)
+      console.log(this.serverPath)
+      console.log(this.shareImage)
+      this.$store.commit('setShareImageUrl', `http://${this.serverPath}:3000${this.shareImage}`)
       this.$modal.show('share-result-image')
+      // this.loadingShare = true
       // console.log('show')
-    //   this.$modal.show('share-result-image')
-    //   this.loadingShare = true
-    //   axios.get('http://localhost:3000/export/pdf')
-    //     .then(res => {
-    //       this.loadingShare = false
-    //       if (res.data && res.data.path) {
-    //         this.shareImage = res.data.path
-    //       }
-    //     })
-    //     .catch(e => {
-    //       this.loadingShare = false
-    //       console.error(e)
-    //     })
+      // console.log(this.serverPath)
+      // axios.get(`http://${this.serverPath}:3000/export/pdf`)
+      //   .then(res => {
+      //     this.loadingShare = false
+      //     if (res.data && res.data.path) {
+      //       this.shareImage = `http://${this.serverPath}:3000/${res.data.path}`
+      //       console.log(this.shareImage)
+      //       this.$store.commit('setShareImageUrl', this.shareImage)
+      //     }
+      //   })
+      //   .catch(e => {
+      //     this.loadingShare = false
+      //     console.error(e)
+      //   })
+      // this.$modal.show('share-result-image')
     }
   }
 }

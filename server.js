@@ -66,28 +66,66 @@ const locationIdExists = (id) => {
 
 const tags = [
   '最难留疤',
+  '喝咖啡较多',
   '容易焦虑',
   '非常脆弱',
-  '喝咖啡较多',
-  '比较怕痛',
-  '不易长痘',
-  '最难失眠',
   '叶酸需求较高',
-  '最难留疤',
   '容易焦虑',
-  '非常脆弱',
-  '喝咖啡较多',
   '比较怕痛',
-  '不易长痘',
+  '叶酸需求较高',
+  '叶酸需求较高',
+  '最难失眠',
+  '最难留疤',
   '最难失眠',
   '叶酸需求较高'
 ];
 
-app.get('/test', (req, res) => {
-	console.log(req.query)
-	// let name = req.query.name
-	res.render('test', { tags });
+
+const ancestries = [
+  {
+    'name': '中国华北地区',
+    'percent': 0.3056,
+    'color': '#0086ff'
+  },
+  {
+    'name': '中国南方地区',
+    'percent': 0.1976,
+    'color': '#fd6603'
+  },
+  {
+    'name': '中国东北地区',
+    'percent': 0.15,
+    'color': '#0086ff'
+  },
+  {
+    'name': '中国西南地区',
+    'percent': 0.09,
+    'color': '#fd6603'
+  },
+  {
+    'name': '中国西北地区',
+    'percent': 0.0703,
+    'color': '#0086ff'
+  },
+  {
+    'name': '中国蒙古地区',
+    'percent': 0.0528,
+    'color': '#fd6603'
+  }
+];
+
+app.get('/result', (req, res) => {
+  // console.log(req.query)
+  // let name = req.query.name
+  res.render('result', { tags });
 });
+
+app.get('/ancestry', (req, res) => {
+  // console.log(req.query)
+  // let name = req.query.name
+  res.render('ancestry', { locations: ancestries });
+});
+
 
 app.get('/data', (req, res) => {
 	return res.json({
@@ -101,16 +139,19 @@ app.get('/export/pdf', (req, res) => {
 		const browser = await puppeteer.launch();
 		const page = await browser.newPage();
 
-		const name = req.params.name || 'hello'
+		const template = req.query.name || 'result'
 
-		await page.goto(`http://localhost:3000/test?name=${name}`, {
+		await page.goto(`http://192.168.31.67:3000/${template}`, {
 			waitUntil: 'load'
 		});
 		await page.setViewport({
 			width: 376, // 320, 768, 1024, 1280
-			height: 802
+			height: template === 'result' ? 802: 720,
+      deviceScaleFactor: 2
 		});
-		const path = `screenshots/screen-${Date.now()}.png`
+		// const path = `screenshots/screen-${Date.now()}.png`
+    const path = `screenshots/${template}.png`
+
 		await page.screenshot({
       path: `dist/${path}`,
       fullPage: true
@@ -129,6 +170,9 @@ app.get('/', (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
-http.listen(port, () => {
+http.listen({
+  host: '192.168.31.67',
+  port
+}, () => {
 	console.log('Listening on: Localhost:' + port);
 });

@@ -29,7 +29,7 @@ export default {
 </script>
 <style>
   #app {
-    position: absolute;
+    position: relative;
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;

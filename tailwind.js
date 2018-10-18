@@ -53,6 +53,7 @@ let colors = {
   'grey': '#b8c2cc',
   // 'grey-light': '#dae1e7',
   'grey-light': '#e6e6e6',
+  'grey-light-2': '#777777',
   'grey-lighter': '#f1f5f8',
   'grey-lightest': '#f8fafc',
   'white': '#ffffff',

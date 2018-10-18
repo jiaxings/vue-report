@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white m-2 mb-0 pt-4 shadow-md card relative rounded">
+  <div class="bg-white m-2 mb-1 pt-4 shadow card relative rounded">
     <div
       class="absolute pin-t pin-t p-2 "
     >
@@ -11,7 +11,7 @@
         稀
       </div>
       <div
-        class="bg-grey-lighter w-4 h-4 rounded-full shadow-inner"
+        class="bg-grey-lighter w-3 h-3 rounded-full shadow-inner"
         v-else
       >
       </div>
@@ -24,8 +24,6 @@
           </div>
         </div>
       </div>
-
-
     </div>
     <div class="text-center">
       <div class="result-image">
@@ -34,7 +32,7 @@
       </div>
       <div class="py-2 leading-normal">
         <p
-          class="text-xs font-bold"
+          class="text-xs font-bold text-grey-light-2"
           :class="explain.tag ? (explain.tag === 'new' ? 'text-orange': 'text-blue'): ''"
         >{{ explain.title }}</p>
         <p class="text-xxs text-grey-dark">现状：{{ explain.test }}</p>
@@ -56,7 +54,7 @@ export default {
     width: 90%;
     min-width: 7rem;
     height: 80%;
-    min-height: 7rem;
+    min-height: 6.5rem;
   }
   .result-image {
     /*background: url('../assets/fire.svg') no-repeat;*/

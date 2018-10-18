@@ -7,10 +7,10 @@
         :selected="preSelected"
       ></Map>
         <template v-if="showNav">
-          <div class="absolute pin-l pl-4 line-center" @click="prevLoc">
+          <div class="absolute pin-l pl-4 line-center" @click="prevLoc" v-if="notFirst">
             <v-icon name="chevron-left" scale="3" class="text-grey-light"></v-icon>
           </div>
-          <div class="absolute pin-r pr-4 line-center" @click="nextLoc">
+          <div class="absolute pin-r pr-4 line-center" @click="nextLoc" v-if="notLast">
             <v-icon name="chevron-right" scale="3" class="text-grey-light"></v-icon>
           </div>
         </template>
@@ -32,8 +32,23 @@ export default {
   components: {
     Map
   },
+  data () {
+    return {
+      notFirst: false,
+      notLast: true
+    }
+  },
   computed: {
     ...mapState(['locations', 'preSelected'])
+  },
+  watch: {
+    preSelected () {
+      let index = this.getEle()
+      let max = this.locations.length - 1
+
+      this.notFirst = index !== 0
+      this.notLast = index !== max
+    }
   },
   methods: {
     getEle () {
@@ -43,7 +58,7 @@ export default {
       let selected = this.preSelected
       let ele = this.getEle()
       // TODO 状态获取延时问题
-      console.log(selected, ele, this.locations.length)
+      // console.log(selected, ele, this.locations.length)
       if (ele !== -1) {
         if (ele === 0) {
           let index = this.locations.length - 1
@@ -57,7 +72,7 @@ export default {
     nextLoc () {
       let selected = this.preSelected
       let ele = this.getEle()
-      console.log(selected, ele, this.locations.length)
+      // console.log(selected, ele, this.locations.length)
       if (ele !== -1) {
         if (ele === this.locations.length - 1) {
           selected = 0

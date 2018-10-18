@@ -1,10 +1,10 @@
 <template>
   <div class="container mx-auto">
     <div class="bg-grey-lightest">
-      <div class="px-4 pt-8 pb-2 bg-grey header-image">
+      <div class="px-4 pt-4 pb-2 bg-grey header-image">
 
         <top-bar modal="ancestry-share"></top-bar>
-        <h1 class="text-white">各色小助手 <span class="text-sm">的祖源画像</span></h1>
+        <h1 class="text-white mt-8">各色小助手 <span class="text-sm">的祖源画像</span></h1>
       </div>
 
       <div>
@@ -20,7 +20,7 @@
         <div class="inline-block text-blue m-4 text-right" @click="toggleMap"><h5>切换至{{ world ? '中国': '世界' }}地图</h5></div>
       </div>
 
-      <div class="bg-white shadow rounded m-4 py-8">
+      <div class="bg-white shadow rounded-lg m-4 py-8">
         <div class="border-l-8 border-blue flex items-center justify-between">
           <div class="text-blue px-2">
             <h1 style="font-size: 4rem;">50.12<span style="font-size: 3rem;">%</span></h1>
@@ -28,18 +28,19 @@
           </div>
 
           <!--地区画像-->
+
           <div class="w-24 h-24 p-2 mr-2 rounded-full bg-white float-right flex items-center justify-center shadow">
             <img src="../assets/394.png" alt="" class="w-24 rounded-full">
           </div>
         </div>
         <div class="px-2 pt-4">
-          <ul class="list-reset leading-loose">
-            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">蒙古人种</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">青稞酒</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">鼻子窄</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">西藏</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">松赞干布</li>
-            <li class="inline bg-grey-light px-2 py-1 rounded whitespace-no-wrap">牛羊肉</li>
+          <ul class="list-reset leading-loose text-grey-darker">
+            <li class="inline bg-grey-lighter font-bold px-2 py-1 rounded whitespace-no-wrap">蒙古人种</li>
+            <li class="inline bg-grey-lighter font-bold px-2 py-1 rounded whitespace-no-wrap">牛羊肉 青稞酒</li>
+            <li class="inline bg-grey-lighter font-bold px-2 py-1 rounded whitespace-no-wrap">鼻子窄</li>
+            <li class="inline bg-grey-lighter font-bold px-2 py-1 rounded whitespace-no-wrap">西藏</li>
+            <li class="inline bg-grey-lighter font-bold px-2 py-1 rounded whitespace-no-wrap">松赞干布</li>
+            <li class="inline bg-grey-lighter font-bold px-2 py-1 rounded whitespace-no-wrap">牛羊肉 青稞酒</li>
           </ul>
         </div>
         <div class="leading-normal px-2 pt-2 text-grey-dark">
@@ -113,13 +114,15 @@ import Earth from '@/components/Earth'
 import Panel from '@/components/Panel'
 import TopBar from '@/components/TopBar'
 import FlatMap from '@/components/FlatMap'
+import Percent from '@/components/Percent'
 
 export default {
   components: {
     Earth,
     Panel,
     TopBar,
-    FlatMap
+    FlatMap,
+    Percent
   },
   data () {
     return {
