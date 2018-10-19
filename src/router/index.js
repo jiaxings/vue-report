@@ -7,6 +7,7 @@ import Ancestry from '@/components/ancestry'
 import Earth from './earth'
 import AncestryShort from '@/components/AncestryShort'
 import FlatMap from '@/components/FlatMap'
+import Details from '@/components/Details'
 import Icons from './Icons'
 // import Report from '@/components/Report'
 // import Sample from '@/components/Sample'
@@ -56,7 +57,13 @@ const router = new Router({
       path: '/ancestry-short',
       name: 'ancestry-short',
       component: AncestryShort
-    }
+    },
+    {
+      path: '/details',
+      name: 'details',
+      component: Details
+    },
+
     // {
     //   path: '/report',
     //   name: 'Report',

@@ -3,7 +3,7 @@
     <div class="bg-grey header-image">
       <div class="px-4 pt-8 pb-6">
         <top-bar modal="ancestry-share"></top-bar>
-        <h1 class="text-white">各色小助手 <span class="text-sm">的祖源画像</span></h1>
+        <h1 class="text-white mt-6">各色小助手 <span class="text-sm">的祖源画像</span></h1>
       </div>
     </div>
     <div class="bg-white shadow rounded m-4 py-8 -mt-4">

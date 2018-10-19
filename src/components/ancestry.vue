@@ -4,7 +4,7 @@
       <div class="px-4 pt-8 pb-2 bg-grey header-image">
 
         <top-bar modal="ancestry-share"></top-bar>
-        <h1 class="text-white">各色小助手 <span class="text-sm">的祖源画像</span></h1>
+        <h1 class="text-white mt-6">各色小助手 <span class="text-sm">的祖源画像</span></h1>
       </div>
 
       <div>
@@ -17,7 +17,7 @@
           </div>
         </transition>
 
-        <div class="inline-block text-blue m-4 text-right" @click="toggleMap"><h5>切换至{{ world ? '中国': '世界' }}地图</h5></div>
+        <div class="inline-block text-grey-dark m-4 text-right" @click="toggleMap"><h5>切换至{{ world ? '中国': '世界' }}地图</h5></div>
       </div>
 
       <div class="bg-white shadow rounded m-4 py-8">
@@ -105,6 +105,8 @@
           4000多年前，你的祖先在西藏雅鲁藏布江，祖源百分比数据调用规则：调用用户祖源祖源百分比数据调用规则：调用用户祖源祖源百分比数据调用规则：调用用户祖源
         </p>
       </panel>
+
+      <Bar/>
     </div>
   </div>
 </template>
@@ -113,13 +115,15 @@ import Earth from '@/components/Earth'
 import Panel from '@/components/Panel'
 import TopBar from '@/components/TopBar'
 import FlatMap from '@/components/FlatMap'
+import Bar from '@/components/Bar'
 
 export default {
   components: {
     Earth,
     Panel,
     TopBar,
-    FlatMap
+    FlatMap,
+    Bar,
   },
   data () {
     return {
