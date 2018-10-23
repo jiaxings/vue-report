@@ -1,13 +1,13 @@
 <template>
   <div class="container mx-auto">
     <div class="bg-blue">
-      <div class="px-4 pt-8 pb-8 clearfix">
+      <div class="px-4 pt-8 pb-12 clearfix">
         <top-bar modal="ancestry-share"></top-bar>
           <div class="w-10 h-10 p-2 mr-2 rounded-full bg-white float-left flex items-center justify-center shadow">
             <img src="../assets/394.png" alt="" class="w-24 rounded-full">
           </div>
           <h1 class="text-white inline-block">DARK Liu</h1>
-          <div class="text-white float-right p-3">公开</div>
+          <div class="text-white float-right p-3 text-sm">公开</div>
       </div>
     </div>
     <div class="bg-white shadow rounded m-4 -mt-4 relative">
@@ -15,24 +15,30 @@
         <div class="flex">
           <div class="w-1/2">
             <div class=" pt-2 pl-4 leading-tight">
-              <div class="text-blue font-bold">基因</div>
-              <div class="text-blue font-bold text-2xl">热爱刺激</div>
-              <div class="text-grey-dark">5.08%同类客户</div>
+              <div class="clearfix">
+                <span class="text-blue font-bold text-sm">基因</span>
+                <span class="w-4 h-4 rounded-full text-white text-center text-xxs bg-blue inline-block float-right mr-2" style="line-height: 1rem;">
+                稀
+              </span>
+              </div>
+
+              <div class="text-blue font-bold text-xl">热爱刺激</div>
+              <div class="text-grey-dark text-sm">5.08%同类客户</div>
               <div class="test-image"></div>
             </div>
           </div>
 
 
           <div class="w-1/2 pt-2 px-4 leading-tight">
-            <div class="text-orange font-bold">现状</div>
-            <div class="text-orange font-bold text-2xl">不爱刺激</div>
-            <div class="text-grey-dark">5.08%同类客户</div>
+            <div class="text-orange font-bold text-sm">现状</div>
+            <div class="text-orange font-bold text-xl">不爱刺激</div>
+            <div class="text-grey-dark text-sm">5.08%同类客户</div>
             <div class="">
               <img src="../assets/negative_bottom.svg"/>
             </div>
           </div>
 
-          <div class="absolute pin-y border-grey-light middle"/>
+          <div class="absolute pin-y border-grey-light middle"></div>
 
         </div>
       </div>
@@ -63,19 +69,32 @@
         </ul>
       </div>-->
       <div class="leading-normal px-4 pt-2">
-        <p class="text-xl font-bold text-grey-darker mt-2">
+        <p class="text-xl font-bold text-grey-darker mt-4">
           爱刺激程度
         </p>
-        <p class="text-grey-dark mt-4">
-          你的祖先在西藏雅鲁藏布江，祖源百分比数据调用规则：调用用户祖源祖源。
+        <p class="text-grey-dark mt-6 leading-loose text-sm">
+          你的祖先在西藏雅鲁藏布江，祖源百分比数据调用规则：调用用户祖源祖源。百分比数据调用规则：调用用户祖源祖源。
         </p>
-        <p class="text-grey-dark mt-4">
+        <p class="text-grey-dark mt-6 leading-loose text-sm">
           你的祖先在西藏雅鲁藏布江，祖源百分比数据调用规则：调用用户祖源祖源。
         </p>
       </div>
-      <div class="px-4 pt-2">
-        <div>
-          图片+字
+      <div class="px-4 py-12 clearfix">
+        <div class="w-full">
+          <div class="result-image inline-block"></div>
+          <div class="inline-block align-bottom text-blue text-xs font-bold -ml-2">爱刺激</div>
+          <div class="inline-block align-bottom text-blue">
+            <span class="text-3xl font-bold">=</span>
+            <span class="text-3xl">40</span>
+            <span class="-ml-1">%</span>
+            <span class="text-xs font-bold -ml-1">基因</span>
+            <span class="text-3xl font-bold">+</span>
+          </div>
+          <div class="inline-block align-bottom text-blue">
+            <span class="text-3xl">60</span>
+            <span class="-ml-1">%</span>
+            <span class="text-xs font-bold -ml-1">生活经历</span>
+          </div>
         </div>
       </div>
 
@@ -110,7 +129,7 @@
           </div>
 
           <div class="w-1/2 text-blue">
-            <div class="text-right font-bold pr-4 pt-4"> &nbsp;减弱</div>
+            <div class="text-right font-bold pr-4 pt-4"><i class="iconfont icon-arrow-left text-2xl w-8 h-8 inline-block align-middle -mr-4"></i><span class="w-3/5 h-1 bg-blue inline-block align-middle -mt-1"> </span> &nbsp;减弱</div>
             <div class="p-1 m-3 shadow-md rounded-lg mt-16">
               <p class="font-bold m-1 leading-normal">生理性别女</p>
               <P class="text-left text-sm m-1 text-grey leading-normal"> 4000多年前，你的祖先在西藏雅鲁藏。</P>
@@ -122,7 +141,7 @@
 
 
           <div class="w-1/2 text-orange">
-            <div class="text-left font-bold pl-4 pt-4"> &nbsp;增强</div>
+            <div class="text-left font-bold pl-4 pt-4">增强 &nbsp;<span class="w-3/5 h-1 bg-orange inline-block align-middle -mt-1"></span><i class="iconfont icon-youjiantou text-2xl w-8 h-8 inline-block align-middle -ml-4"></i></div>
             <div class="p-1 m-3 shadow-md rounded-lg mt-16">
               <p class="text-left font-bold m-1 leading-normal">生理性别女</p>
               <P class="text-left text-sm m-1 text-grey leading-normal"> 4000多年前，你的祖先在西藏雅鲁藏布江，祖源百分比数据调用规则。</P>
@@ -296,7 +315,7 @@
     border-right-width: 1px;
   }
   .cb {
-    top:50px;
+    top:60px;
     left: 46%;
   }
   .ca{
@@ -305,6 +324,15 @@
   .circle{
     top: -3px;
     left: 49.3%;
+  }
+  .result-image {
+    /*background: url('../assets/fire.svg') no-repeat;*/
+    /*-webkit-background-size: cover;*/
+    /*background-size: cover;*/
+    width: 2rem;
+    height: 2rem;
+    background: url("../assets/fire_blue.svg") no-repeat bottom;
+    background-size: cover;
   }
 
 </style>
